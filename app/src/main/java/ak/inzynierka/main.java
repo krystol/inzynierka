@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class main extends Activity {
@@ -34,5 +35,20 @@ public class main extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToSalki(View view) {
+    }
+
+    public void goToOgloszenia(View view) {
+    }
+
+    public void goToPralnia(View view) {
+    }
+
+    public void goToZakupy(View view) {
+    }
+
+    public void goToImprezy(View view) {
     }
 }
