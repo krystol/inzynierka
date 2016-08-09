@@ -53,8 +53,8 @@ public class main extends Activity {
         startActivity(intentPralnia);
     }
 
-    public void goToZakupy(View view) {
-        Intent intentZakupy = new Intent(this, Zakupy.class);
+    public void goToInformacje(View view) {
+        Intent intentZakupy = new Intent(this, Informacje.class);
         startActivity(intentZakupy);
     }
 

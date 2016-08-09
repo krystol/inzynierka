@@ -55,10 +55,10 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Zakupy"
-            android:id="@+id/buttonZakupy"
+            android:text="Wazne Informacje"
+            android:id="@+id/buttonInformacje"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.2"
-            android:onClick="goToZakupy" />
+            android:onClick="goToInformacje" />
     </LinearLayout>
 </RelativeLayout>
