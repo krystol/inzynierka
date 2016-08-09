@@ -4,5 +4,10 @@
     <string name="app_name">inzynierka</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_salki">salki</string>
+    <string name="title_activity_ogloszenia">Ogloszenia</string>
+    <string name="title_activity_pralnia">Pralnia</string>
+    <string name="title_activity_imprezy">Imprezy</string>
+    <string name="title_activity_zakupy">Zakupy</string>
 
 </resources>

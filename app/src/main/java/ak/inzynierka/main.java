@@ -1,6 +1,7 @@
 package ak.inzynierka;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,17 +39,27 @@ public class main extends Activity {
     }
 
     public void goToSalki(View view) {
+        Intent intentSalki = new Intent(this, Salki.class);
+        startActivity(intentSalki);
     }
 
     public void goToOgloszenia(View view) {
+        Intent intentOgloszenia = new Intent(this, Ogloszenia.class);
+        startActivity(intentOgloszenia);
     }
 
     public void goToPralnia(View view) {
+        Intent intentPralnia = new Intent(this, Pralnia.class);
+        startActivity(intentPralnia);
     }
 
     public void goToZakupy(View view) {
+        Intent intentZakupy = new Intent(this, Zakupy.class);
+        startActivity(intentZakupy);
     }
 
     public void goToImprezy(View view) {
+        Intent intentImprezy = new Intent(this, Imprezy.class);
+        startActivity(intentImprezy);
     }
 }
