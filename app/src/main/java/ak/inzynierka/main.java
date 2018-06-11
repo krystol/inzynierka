@@ -39,8 +39,8 @@ public class main extends Activity {
     }
 
     public void goToSalki(View view) {
-        Intent intentSalki = new Intent(this, Salki.class);
-        startActivity(intentSalki);
+        //Intent intentSalki = new Intent(this, Salki.class);
+        //startActivity(intentSalki);
     }
 
     public void goToOgloszenia(View view) {
