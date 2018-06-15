@@ -9,5 +9,9 @@
     <string name="title_activity_pralnia">Pralnia</string>
     <string name="title_activity_imprezy">Imprezy</string>
     <string name="title_activity_zakupy">Zakupy</string>
+    <string name="title_activity_lista_salek">Lista Salek</string>
+    <string name="title_activity_salka">Salka</string>
+    <string name="title_activity_ogloszenie">Ogloszenie</string>
+    <string name="dodajOgloszenieActionBarListaOgloszenActivity">Dodaj Ogloszenie</string>
 
 </resources>

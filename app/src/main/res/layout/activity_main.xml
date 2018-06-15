@@ -17,48 +17,48 @@
         android:layout_alignParentStart="true">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Salki"
             android:id="@+id/buttonSalki"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.2"
-            android:onClick="goToSalki" />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ogloszenia"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.2"
+            android:onClick="goToSalki"
+            android:text="Salki" />
+
+        <Button
             android:id="@+id/buttonOgloszenia"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.2"
-            android:onClick="goToOgloszenia" />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pralnia"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.2"
+            android:onClick="goToOgloszenia"
+            android:text="Ogloszenia" />
+
+        <Button
             android:id="@+id/buttonPralnia"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.2"
-            android:onClick="goToPralnia" />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Imprezy"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.2"
+            android:onClick="goToPralnia"
+            android:text="Pralnia" />
+
+        <Button
             android:id="@+id/buttonImprezy"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.2"
-            android:onClick="goToImprezy" />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Wazne Informacje"
-            android:id="@+id/buttonInformacje"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.2"
-            android:onClick="goToInformacje" />
+            android:onClick="goToImprezy"
+            android:text="Imprezy" />
+
+        <Button
+            android:id="@+id/buttonInformacje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.2"
+            android:onClick="goToInformacje"
+            android:text="Wazne Informacje" />
     </LinearLayout>
 </RelativeLayout>

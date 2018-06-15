@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import ak.inzynierka.salki.ListaSalek;
+
 
 public class main extends Activity {
 
@@ -39,12 +41,12 @@ public class main extends Activity {
     }
 
     public void goToSalki(View view) {
-        //Intent intentSalki = new Intent(this, Salki.class);
-        //startActivity(intentSalki);
+        Intent intentSalki = new Intent(this, ListaSalek.class);
+        startActivity(intentSalki);
     }
 
     public void goToOgloszenia(View view) {
-        Intent intentOgloszenia = new Intent(this, Ogloszenia.class);
+        Intent intentOgloszenia = new Intent(this, OgloszeniaLista.class);
         startActivity(intentOgloszenia);
     }
 
