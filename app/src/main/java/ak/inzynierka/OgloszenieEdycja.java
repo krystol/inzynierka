@@ -1,5 +1,7 @@
 package ak.inzynierka;
 
+import ak.inzynierka.model.BoardMessage;
+import ak.inzynierka.model.User;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +15,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import ak.inzynierka.Model.OgloszenieData;
 
 public class OgloszenieEdycja extends Activity {
 
-    private boolean inEditMode = false;
+    private boolean inEditMode = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +35,12 @@ public class OgloszenieEdycja extends Activity {
 
         Serializable extra = getIntent().getSerializableExtra("Ogloszenie");
         if (extra != null) {
-            OgloszenieData ogloszenie = (OgloszenieData)extra;
-
-            autorTextView.setText(ogloszenie.getAutor());
-            tytulEditText.setText(ogloszenie.getTytul());
-            trescOgloszenia.setText(ogloszenie.getTresc());
+            zapiszOgloszenieButton.setText("Edytuj");
+            BoardMessage ogloszenie = (BoardMessage)extra;
+            String author = ogloszenie.getAuthor().getFirstName()+" "+ogloszenie.getAuthor().getLastName();
+            autorTextView.setText(author);
+            tytulEditText.setText(ogloszenie.getTitle());
+            trescOgloszenia.setText(ogloszenie.getMessage());
 
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss",Locale.US);
             String date = dateFormat.format(ogloszenie.getDate());
@@ -58,16 +60,14 @@ public class OgloszenieEdycja extends Activity {
         zapiszOgloszenieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 if(inEditMode){
                     //Zapisz notatke
+                    BoardMessage ogloszenie = new BoardMessage();
+                    ogloszenie.setAuthor(new User());
+                    ogloszenie.setTitle(tytulEditText.getText().toString());
+                    ogloszenie.setMessage(trescOgloszenia.getText().toString());
+                    ogloszenie.setDate(Calendar.getInstance().getTime());
                     Intent returnIntent = new Intent();
-                    OgloszenieData ogloszenie = new OgloszenieData(
-                            autorTextView.getText().toString(),
-                            tytulEditText.getText().toString(),
-                            trescOgloszenia.getText().toString(),
-                            Calendar.getInstance().getTime());
                     returnIntent.putExtra("Ogloszenie", ogloszenie);
                     setResult(RESULT_OK, returnIntent);
                     finish();
@@ -76,6 +76,7 @@ public class OgloszenieEdycja extends Activity {
                     inEditMode = true;
                     zapiszOgloszenieButton.setText("Zapisz");
                     trescOgloszenia.setEnabled(true);
+                    tytulEditText.setEnabled(true);
                 }
             }
         });
