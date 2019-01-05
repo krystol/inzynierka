@@ -19,25 +19,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OgloszeniaLista"
+            android:name=".core.OgloszeniaLista"
             android:label="@string/title_activity_ogloszenia" />
         <activity
-            android:name=".Pralnia"
+            android:name=".core.Pralnia"
             android:label="@string/title_activity_pralnia" />
         <activity
-            android:name=".Imprezy"
-            android:label="@string/title_activity_imprezy" />
-        <activity
-            android:name=".Informacje"
-            android:label="@string/title_activity_zakupy" />
-        <activity
-            android:name=".salki.ListaSalek"
+            android:name=".core.ListaSalek"
             android:label="@string/title_activity_lista_salek" />
         <activity
-            android:name=".salki.Salka"
+            android:name=".core.Salka"
             android:label="@string/title_activity_salka" />
         <activity
-            android:name=".OgloszenieEdycja"
+            android:name=".core.OgloszenieEdycja"
             android:label="@string/title_activity_ogloszenie"></activity>
     </application>
 

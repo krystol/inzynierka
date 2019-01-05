@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ak.inzynierka.OgloszeniaLista" >
+    tools:context="ak.inzynierka.core.OgloszeniaLista" >
     <item
         android:id="@+id/dodajOgloszenie"
         android:orderInCategory="100"

@@ -1,4 +1,4 @@
-package ak.inzynierka.salki;
+package ak.inzynierka.core;
 
 import android.app.Activity;
 import android.content.Intent;

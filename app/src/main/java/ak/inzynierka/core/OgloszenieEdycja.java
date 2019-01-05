@@ -1,5 +1,6 @@
-package ak.inzynierka;
+package ak.inzynierka.core;
 
+import ak.inzynierka.R;
 import ak.inzynierka.model.BoardMessage;
 import ak.inzynierka.model.User;
 import android.app.Activity;

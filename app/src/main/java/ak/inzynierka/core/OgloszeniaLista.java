@@ -1,5 +1,6 @@
-package ak.inzynierka;
+package ak.inzynierka.core;
 
+import ak.inzynierka.R;
 import ak.inzynierka.model.BoardMessage;
 import android.app.Activity;
 import android.content.Context;
@@ -16,14 +17,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

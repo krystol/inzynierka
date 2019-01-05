@@ -43,22 +43,5 @@
             android:onClick="goToPralnia"
             android:text="Pralnia" />
 
-        <Button
-            android:id="@+id/buttonImprezy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.2"
-            android:onClick="goToImprezy"
-            android:text="Imprezy" />
-
-        <Button
-            android:id="@+id/buttonInformacje"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.2"
-            android:onClick="goToInformacje"
-            android:text="Wazne Informacje" />
     </LinearLayout>
 </RelativeLayout>
