@@ -17,7 +17,6 @@ public class Salka extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salka);
 
-
         ListView listaDanychSalki = findViewById(R.id.daneSalki);
 
         List<String> values = new ArrayList<String>();

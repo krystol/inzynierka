@@ -1,6 +1,7 @@
 package ak.inzynierka.core;
 
 import ak.inzynierka.R;
+import ak.inzynierka.main;
 import ak.inzynierka.model.BoardMessage;
 import android.app.Activity;
 import android.content.Context;
@@ -31,7 +32,7 @@ public class OgloszeniaLista extends Activity {
     private List<BoardMessage> listaOgloszen = new ArrayList<>();
     private ListView listaOgloszenListView;
     private int idEdytowanegoOgloszenia = -1;
-    private static String URL = "http://ac4e44b8.ngrok.io";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +109,7 @@ public class OgloszeniaLista extends Activity {
             List<BoardMessage> listFromServer = new ArrayList<>();
             if(isNetworkAvailable()) {
                 ResponseEntity<List<BoardMessage>> response = restTemplate.exchange(
-                        URL+"/boardMessages",
+                        main.URL+"/boardMessages",
                         HttpMethod.GET,
                         null,
                         new ParameterizedTypeReference<List<BoardMessage>>(){});
@@ -140,7 +141,7 @@ public class OgloszeniaLista extends Activity {
             ResponseEntity<BoardMessage> response = null;
             if(isNetworkAvailable()) {
                 response = restTemplate.exchange(
-                        URL+"/saveBoardMessage",
+                        main.URL+"/saveBoardMessage",
                         HttpMethod.POST,
                         requestEntity,
                         new ParameterizedTypeReference<BoardMessage>(){});

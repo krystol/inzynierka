@@ -11,6 +11,8 @@ import android.view.View;
 
 public class main extends Activity {
 
+    public static String URL = "http://ac4e44b8.ngrok.io";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +56,4 @@ public class main extends Activity {
         startActivity(intentPralnia);
     }
 
-    public void goToInformacje(View view) {
-        Intent intentZakupy = new Intent(this, Informacje.class);
-        startActivity(intentZakupy);
-    }
-
-    public void goToImprezy(View view) {
-        Intent intentImprezy = new Intent(this, Imprezy.class);
-        startActivity(intentImprezy);
-    }
 }

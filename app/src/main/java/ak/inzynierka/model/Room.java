@@ -9,12 +9,14 @@ import java.io.Serializable;
 public class Room  implements Serializable {
   @JsonProperty("id")
   private int id;
-  @JsonProperty("roomType")
-  private RoomType roomType;
+  @JsonProperty("roomName")
+  private String roomName;
   @JsonProperty("isOccupied")
   private boolean isOccupied;
   @JsonProperty("keyInRoomNumber")
   private int keyInRoomNumber;
+  @JsonProperty("roomNumber")
+  private int roomNumber;
   @JsonProperty("occupiedByUser")
   private User occupiedByUser;
 }
