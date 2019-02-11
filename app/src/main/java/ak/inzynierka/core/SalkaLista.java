@@ -1,7 +1,5 @@
 package ak.inzynierka.core;
 
-import ak.inzynierka.main;
-import ak.inzynierka.model.BoardMessage;
 import ak.inzynierka.model.Room;
 import android.app.Activity;
 import android.content.Context;
@@ -15,48 +13,60 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import ak.inzynierka.R;
+import android.widget.Toast;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-public class ListaSalek extends Activity {
+public class SalkaLista extends Activity {
     private List<Room> listaSalek = new ArrayList<>();
     private ListView listaSalekListView;
     private int idRezerwowanejSalki = -1;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_salek);
+        setContentView(R.layout.activity_salek_lista);
         listaSalekListView = findViewById(R.id.listaSalekView);
 
         GetBoardMessagesRestTask task = new GetBoardMessagesRestTask();
         task.execute(listaSalek);
-        listaSalekListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View view, int ItemNumber, long id){
-                Intent salkaIntent = new Intent(view.getContext(), Salka.class);
-                startActivity(salkaIntent);
-            }
-        });
 
         listaSalekListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int itemNumber, long id) {
                 Intent salkaRezerwacjaIntent = new Intent(view.getContext(), Salka.class);
                 salkaRezerwacjaIntent.putExtra("Salka", listaSalek.get(itemNumber));
-                //putExtra("Ogloszenie", listaOgloszen.get(itemNumber));
                 idRezerwowanejSalki = itemNumber;
                 startActivityForResult(salkaRezerwacjaIntent, 1);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (resultCode == RESULT_CANCELED) {
+            return;
+        }
+        Serializable extra = data.getSerializableExtra("Pokoj");
+        if (extra != null) {
+            if (resultCode == RESULT_OK) {
+                Room room = (Room) extra;
+                listaSalek.set(idRezerwowanejSalki,room);
+                idRezerwowanejSalki = -1;
+                toast = new Toast(getApplicationContext());
+                String text = "Zarezerwowane przez: "+room.getOccupiedByUser().getFirstName()+" "+room.getOccupiedByUser().getLastName();
+                toast.makeText(this,text, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 
@@ -79,7 +89,7 @@ public class ListaSalek extends Activity {
             List<Room> listFromServer = new ArrayList<>();
             if(isNetworkAvailable()) {
                 ResponseEntity<List<Room>> response = restTemplate.exchange(
-                        main.URL+"/getrooms",
+                        MainActivity.URL+"/getrooms",
                         HttpMethod.GET,
                         null,
                         new ParameterizedTypeReference<List<Room>>(){});

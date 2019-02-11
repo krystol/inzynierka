@@ -6,7 +6,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".main">
+    tools:context=".core.MainActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,13 +17,13 @@
         android:layout_alignParentStart="true">
 
         <Button
-            android:id="@+id/buttonSalki"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.2"
-            android:onClick="goToSalki"
-            android:text="Salki" />
+                android:id="@+id/buttonSalki"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.2"
+                android:onClick="goToSalki"
+                android:text="Salki"/>
 
         <Button
             android:id="@+id/buttonOgloszenia"

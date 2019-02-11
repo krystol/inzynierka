@@ -64,7 +64,7 @@ public class OgloszenieEdycja extends Activity {
                 if(inEditMode){
                     //Zapisz notatke
                     BoardMessage ogloszenie = new BoardMessage();
-                    ogloszenie.setAuthor(new User());
+                    ogloszenie.setAuthor(MainActivity.loggedUser);
                     ogloszenie.setTitle(tytulEditText.getText().toString());
                     ogloszenie.setMessage(trescOgloszenia.getText().toString());
                     ogloszenie.setDate(Calendar.getInstance().getTime());

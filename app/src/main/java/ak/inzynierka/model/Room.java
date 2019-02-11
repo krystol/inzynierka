@@ -14,9 +14,9 @@ public class Room  implements Serializable {
   @JsonProperty("isOccupied")
   private boolean isOccupied;
   @JsonProperty("keyInRoomNumber")
-  private int keyInRoomNumber;
+  private Integer keyInRoomNumber;
   @JsonProperty("roomNumber")
-  private int roomNumber;
+  private Integer roomNumber;
   @JsonProperty("occupiedByUser")
   private User occupiedByUser;
 }

@@ -1,7 +1,6 @@
 package ak.inzynierka.core;
 
 import ak.inzynierka.R;
-import ak.inzynierka.main;
 import ak.inzynierka.model.BoardMessage;
 import android.app.Activity;
 import android.content.Context;
@@ -109,7 +108,7 @@ public class OgloszeniaLista extends Activity {
             List<BoardMessage> listFromServer = new ArrayList<>();
             if(isNetworkAvailable()) {
                 ResponseEntity<List<BoardMessage>> response = restTemplate.exchange(
-                        main.URL+"/boardMessages",
+                        MainActivity.URL+"/boardMessages",
                         HttpMethod.GET,
                         null,
                         new ParameterizedTypeReference<List<BoardMessage>>(){});
@@ -131,9 +130,6 @@ public class OgloszeniaLista extends Activity {
         @Override
         protected ResponseEntity<BoardMessage> doInBackground(BoardMessage... input) {
             RestTemplate restTemplate = new RestTemplate();
-            //request entity is created with request body and headers
-
-            //setting up the request headers
             HttpHeaders requestHeaders = new HttpHeaders();
             requestHeaders.setContentType(MediaType.APPLICATION_JSON);
             requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
@@ -141,7 +137,7 @@ public class OgloszeniaLista extends Activity {
             ResponseEntity<BoardMessage> response = null;
             if(isNetworkAvailable()) {
                 response = restTemplate.exchange(
-                        main.URL+"/saveBoardMessage",
+                        MainActivity.URL+"/saveBoardMessage",
                         HttpMethod.POST,
                         requestEntity,
                         new ParameterizedTypeReference<BoardMessage>(){});

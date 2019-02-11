@@ -1,6 +1,7 @@
-package ak.inzynierka;
+package ak.inzynierka.core;
 
-import ak.inzynierka.core.*;
+import ak.inzynierka.R;
+import ak.inzynierka.model.User;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class main extends Activity {
+public class MainActivity extends Activity {
 
-    public static String URL = "http://ac4e44b8.ngrok.io";
+    public static String URL = "http://fe28a4b6.ngrok.io";
+    public static final User loggedUser = new User("Krystian", "Adamczyk", 214);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class main extends Activity {
     }
 
     public void goToSalki(View view) {
-        Intent intentSalki = new Intent(this, ListaSalek.class);
+        Intent intentSalki = new Intent(this, SalkaLista.class);
         startActivity(intentSalki);
     }
 
@@ -52,7 +54,7 @@ public class main extends Activity {
     }
 
     public void goToPralnia(View view) {
-        Intent intentPralnia = new Intent(this, Pralnia.class);
+        Intent intentPralnia = new Intent(this, PralniaLista.class);
         startActivity(intentPralnia);
     }
 
