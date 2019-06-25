@@ -1,5 +1,7 @@
 package ak.inzynierka.core;
 
+import ak.inzynierka.core.utility.EntityUtil;
+import ak.inzynierka.model.AuthenticationRequest;
 import ak.inzynierka.model.AuthenticationResult;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -28,11 +30,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,7 +42,6 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import static android.Manifest.permission.READ_CONTACTS;
-
 /**
  * A login screen that offers login via email/password.
  */
@@ -60,7 +57,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world", "test@p.pl:test"
+            "foo@example.com:hello", "bar@example.com:world", "test@p.pl:test","test:test"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -72,11 +69,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        LinearLayout rootLayaut = findViewById(R.id.layautLogin);
+        rootLayaut.setBackgroundResource(R.drawable.background);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -198,14 +198,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return true;
-        // return email.contains("@");
+        return email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        //return password.length() > 4;
-        return true;
+        return password.length() >= 1;
     }
 
     /**
@@ -304,47 +302,29 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mUsername;
         private final String mPassword;
 
         UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
+            mUsername = "test";
+            mPassword = "test";
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-            RestTemplate restTemplate = new RestTemplate();
-            HttpHeaders requestHeaders = new HttpHeaders();
-            requestHeaders.setContentType(MediaType.APPLICATION_JSON);
-            requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-            HttpEntity<AuthenticationResult> requestEntity = new HttpEntity<>(requestHeaders);
             ResponseEntity<AuthenticationResult> response = null;
+            RestTemplate restTemplate = new RestTemplate();
             if(isNetworkAvailable()) {
                 response = restTemplate.exchange(
                         MainActivity.URL+"/auth/signin",
                         HttpMethod.POST,
-                        requestEntity,
+                        EntityUtil.getAuthenticationEntity(mUsername,mPassword),
                         new ParameterizedTypeReference<AuthenticationResult>(){});
             }
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
+            if(response!= null && response.getBody() != null) {
+                token = response.getBody().getToken();
             }
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
-            // TODO: register the new account here.
-            return false; //changed
+            return response != null;
         }
 
         @Override
@@ -353,8 +333,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
 
             if (success) {
-                finish();
-                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                finish();Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                myIntent.putExtra("Token",token);
                 LoginActivity.this.startActivity(myIntent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
@@ -376,4 +356,3 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
-

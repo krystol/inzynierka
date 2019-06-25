@@ -1,7 +1,9 @@
-package ak.inzynierka.core;
+package ak.inzynierka.core.pralnia;
 
 import ak.inzynierka.R;
-import ak.inzynierka.model.Room;
+import ak.inzynierka.core.MainActivity;
+import ak.inzynierka.core.utility.EntityUtil;
+import ak.inzynierka.model.LaundryRoom;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +29,7 @@ import java.util.List;
 
 public class PralniaLista extends Activity {
 
-    private List<Room> laundryList = new ArrayList<>();
+    private List<LaundryRoom> laundryList = new ArrayList<>();
     private ListView laundryListView;
 
     @Override
@@ -42,9 +44,9 @@ public class PralniaLista extends Activity {
         laundryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int itemNumber, long id) {
-                Intent pralniaRezerwacjaIntent = new Intent(view.getContext(), PralniaKalendarz.class);
-                pralniaRezerwacjaIntent.putExtra("PietroObject", laundryList.get(itemNumber));
-                startActivityForResult(pralniaRezerwacjaIntent, 1);
+                Intent pralniaKalendarzIntent = new Intent(view.getContext(), PralniaKalendarz.class);
+                pralniaKalendarzIntent.putExtra("LaundryRoom", laundryList.get(itemNumber));
+                startActivityForResult(pralniaKalendarzIntent, 1);
             }
         });
     }
@@ -72,7 +74,7 @@ public class PralniaLista extends Activity {
     private void populateList(ListView listaSalekListView) {
         List<String> nazwySalek = new ArrayList<String>();
 
-        for (Room r : laundryList) {
+        for (LaundryRoom r : laundryList) {
             nazwySalek.add(r.getRoomName());
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, nazwySalek);
@@ -86,13 +88,13 @@ public class PralniaLista extends Activity {
         protected List doInBackground(List... input) {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            List<Room> listFromServer = new ArrayList<>();
+            List<LaundryRoom> listFromServer = new ArrayList<>();
             if(isNetworkAvailable()) {
-                ResponseEntity<List<Room>> response = restTemplate.exchange(
+                ResponseEntity<List<LaundryRoom>> response = restTemplate.exchange(
                         MainActivity.URL+"/getlaundry",
                         HttpMethod.GET,
-                        null,
-                        new ParameterizedTypeReference<List<Room>>(){});
+                        EntityUtil.getAuthorizationEntity(),
+                        new ParameterizedTypeReference<List<LaundryRoom>>(){});
                 listFromServer = response.getBody();
             }
             return listFromServer;

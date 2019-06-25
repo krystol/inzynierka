@@ -1,5 +1,7 @@
-package ak.inzynierka.core;
+package ak.inzynierka.core.salki;
 
+import ak.inzynierka.core.MainActivity;
+import ak.inzynierka.core.utility.EntityUtil;
 import ak.inzynierka.model.Room;
 import android.app.Activity;
 import android.content.Context;
@@ -20,8 +22,7 @@ import java.util.List;
 import ak.inzynierka.R;
 import android.widget.Toast;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
@@ -91,7 +92,7 @@ public class SalkaLista extends Activity {
                 ResponseEntity<List<Room>> response = restTemplate.exchange(
                         MainActivity.URL+"/getrooms",
                         HttpMethod.GET,
-                        null,
+                        EntityUtil.getAuthorizationEntity(),
                         new ParameterizedTypeReference<List<Room>>(){});
                 listFromServer = response.getBody();
             }

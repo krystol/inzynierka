@@ -1,8 +1,9 @@
-package ak.inzynierka.core;
+package ak.inzynierka.core.salki;
 
-import ak.inzynierka.model.BoardMessage;
+import ak.inzynierka.R;
+import ak.inzynierka.core.MainActivity;
 import ak.inzynierka.model.Room;
-import ak.inzynierka.model.User;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,20 +11,18 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.annotation.DrawableRes;
+import android.support.constraint.ConstraintLayout;
 import android.view.View;
-import android.view.Window;
-import android.widget.*;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import ak.inzynierka.R;
+import android.widget.Button;
+import android.widget.TextView;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.io.Resource;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.io.Serializable;
+import java.util.Collections;
 
 public class Salka extends Activity {
     private Room pokoj;
@@ -32,6 +31,7 @@ public class Salka extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salka);
+        final ConstraintLayout rootLayaut = findViewById(R.id.SalkaLaylaut);
         final TextView roomName = findViewById(R.id.RoomName);
         final TextView numerPokoju = findViewById(R.id.NumerPokoju);
         final TextView kluczWPokoju = findViewById(R.id.KluczWPokoju);
@@ -40,6 +40,24 @@ public class Salka extends Activity {
         Serializable extra = getIntent().getSerializableExtra("Salka");
         if (extra != null) {
             pokoj = (Room)extra;
+            String nazwaPokoju = pokoj.getRoomName();
+            switch(nazwaPokoju){
+                case "Silownia":
+                    rootLayaut.setBackgroundResource(R.drawable.gym);
+                    break;
+                case "Bilard":
+                    rootLayaut.setBackgroundResource(R.drawable.bilard);
+                    break;
+                case "Joker":
+                    rootLayaut.setBackgroundResource(R.drawable.party);
+                    break;
+                case "Pokoj spokojnej nauki":
+                    rootLayaut.setBackgroundResource(R.drawable.study);
+                    break;
+                case "Ping-Pong":
+                    rootLayaut.setBackgroundResource(R.drawable.ping2);
+                    break;
+            }
             roomName.setText(pokoj.getRoomName());
             numerPokoju.setText(pokoj.getRoomNumber().toString());
             kluczWPokoju.setText(pokoj.getKeyInRoomNumber().toString());
@@ -82,6 +100,12 @@ public class Salka extends Activity {
         protected ResponseEntity<Room> doInBackground(Room... input) {
             RestTemplate restTemplate = new RestTemplate();
             HttpHeaders requestHeaders = new HttpHeaders();
+            requestHeaders.setAuthorization(new HttpAuthentication() {
+                @Override
+                public String getHeaderValue() {
+                    return MainActivity.TOKEN;
+                }
+            });
             requestHeaders.setContentType(MediaType.APPLICATION_JSON);
             requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
             HttpEntity<Room> requestEntity = new HttpEntity<>(input[0],requestHeaders);

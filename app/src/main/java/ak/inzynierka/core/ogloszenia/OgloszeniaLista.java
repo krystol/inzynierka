@@ -1,6 +1,7 @@
-package ak.inzynierka.core;
+package ak.inzynierka.core.ogloszenia;
 
 import ak.inzynierka.R;
+import ak.inzynierka.core.MainActivity;
 import ak.inzynierka.model.BoardMessage;
 import android.app.Activity;
 import android.content.Context;
@@ -103,6 +104,13 @@ public class OgloszeniaLista extends Activity {
 
         @Override
         protected List doInBackground(List... input) {
+            HttpAuthentication httpAuthentication = new HttpBasicAuthentication("test", "test");
+            HttpHeaders requestHeaders = new HttpHeaders();
+            requestHeaders.setAuthorization(httpAuthentication);
+            requestHeaders.add("Authorization", MainActivity.TOKEN);
+            requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+            requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+            HttpEntity<String> requestEntity = new HttpEntity<>(requestHeaders);
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
             List<BoardMessage> listFromServer = new ArrayList<>();
@@ -110,7 +118,7 @@ public class OgloszeniaLista extends Activity {
                 ResponseEntity<List<BoardMessage>> response = restTemplate.exchange(
                         MainActivity.URL+"/boardMessages",
                         HttpMethod.GET,
-                        null,
+                        requestEntity,
                         new ParameterizedTypeReference<List<BoardMessage>>(){});
                 listFromServer = response.getBody();
             }

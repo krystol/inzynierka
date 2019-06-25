@@ -5,4 +5,314 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".core.PralniaGodzina"/>
+        tools:context=".core.pralnia.PralniaGodzina" android:id="@+id/pralniaGLayaut">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:background="#9Ab3d9ff"
+            android:layout_height="match_parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp">
+
+        <TextView
+                android:text="17:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina17"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina16"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina18"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG17" android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@+id/textGodzina17"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina17"/>
+        <TextView
+                android:text="12:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina12"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina11"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina13"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG16" android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@+id/textGodzina16"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina16"/>
+        <TextView
+                android:text="14:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina14"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina13"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina15"/>
+        <TextView
+                android:text="21:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina21"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina20"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG11" app:layout_constraintStart_toEndOf="@+id/textGodzina11"
+                android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina11"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG19" android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@+id/textGodzina19"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina19"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG10" app:layout_constraintStart_toEndOf="@+id/textWolneG10"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG10"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG18" app:layout_constraintStart_toEndOf="@+id/textWolneG18"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG18"/>
+        <TextView
+                android:text="18:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina18"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina17"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina19"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG21" android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@+id/textGodzina21"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina21"/>
+        <TextView
+                android:text="19:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina19"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina18"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina20"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG13" app:layout_constraintStart_toEndOf="@+id/textGodzina13"
+                android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina13"/>
+        <TextView
+                android:text="13:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina13"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina12"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina14"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG15" app:layout_constraintStart_toEndOf="@+id/textWolneG15"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG15"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG11" app:layout_constraintStart_toEndOf="@+id/textWolneG11"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG11"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG9"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina9"
+                app:layout_constraintStart_toEndOf="@+id/textGodzina9" android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG20" app:layout_constraintStart_toEndOf="@+id/textWolneG20"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG20"/>
+        <TextView
+                android:text="11:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina11"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina10"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina12"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/textWolneG18" android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@+id/textGodzina18"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina18"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG21" app:layout_constraintStart_toEndOf="@+id/textWolneG21"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG21"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG15"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina15" android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp" app:layout_constraintStart_toEndOf="@+id/textGodzina15"/>
+        <TextView
+                android:text="10:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina10"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina9" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina11"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG12" app:layout_constraintStart_toEndOf="@+id/textGodzina12"
+                android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina12"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG14" app:layout_constraintStart_toEndOf="@+id/textGodzina14"
+                android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina14"/>
+        <TextView
+                android:text="08:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp" android:layout_marginStart="16dp" android:id="@+id/textGodzina8"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina9"/>
+        <TextView
+                android:text="09:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textGodzina9"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina8"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina10"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG8" app:layout_constraintStart_toEndOf="@+id/textWolneG8"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG8"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG9" app:layout_constraintStart_toEndOf="@+id/textWolneG9"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG9"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG10"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina10" android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp" app:layout_constraintStart_toEndOf="@+id/textGodzina10"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG13" app:layout_constraintStart_toEndOf="@+id/textWolneG13"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG13"/>
+        <TextView
+                android:text="15:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina15"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina14"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina16"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG8"
+                app:layout_constraintStart_toEndOf="@+id/textGodzina8" android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina8"/>
+        <TextView
+                android:text="16:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina16"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina15"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina17"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG14" app:layout_constraintStart_toEndOf="@+id/textWolneG14"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG14"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG12" app:layout_constraintStart_toEndOf="@+id/textWolneG12"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG12"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG16" app:layout_constraintStart_toEndOf="@+id/textWolneG16"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG16"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textWolneG20" android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@+id/textGodzina20"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textGodzina20"/>
+        <TextView
+                android:text="20:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textGodzina20"
+                app:layout_constraintTop_toBottomOf="@+id/textGodzina19"
+                android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textGodzina21"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG17" app:layout_constraintStart_toEndOf="@+id/textWolneG17"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG17"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxG19" app:layout_constraintStart_toEndOf="@+id/textWolneG19"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textWolneG19"/>
+    </android.support.constraint.ConstraintLayout>
+    <Button
+            android:text="Zapisz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/zarezerwujPralnieButton"
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="#37AEE4"/>
+</android.support.constraint.ConstraintLayout>

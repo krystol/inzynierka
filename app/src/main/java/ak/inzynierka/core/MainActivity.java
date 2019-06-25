@@ -1,6 +1,9 @@
 package ak.inzynierka.core;
 
 import ak.inzynierka.R;
+import ak.inzynierka.core.ogloszenia.OgloszeniaLista;
+import ak.inzynierka.core.pralnia.PralniaLista;
+import ak.inzynierka.core.salki.SalkaLista;
 import ak.inzynierka.model.User;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,17 +11,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
+
+import java.io.Serializable;
 
 
 public class MainActivity extends Activity {
 
-    public static String URL = "http://fe28a4b6.ngrok.io";
+    public static String URL = "http://97db8ecb.ngrok.io";
     public static final User loggedUser = new User("Krystian", "Adamczyk", 214);
-
+    public static String TOKEN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RelativeLayout rootLayaut = findViewById(R.id.relativeMain);
+        rootLayaut.setBackgroundResource(R.drawable.background);
+        Serializable extra = getIntent().getSerializableExtra("Token");
+        if (extra != null) {
+            TOKEN = (String)extra;
+        }
     }
 
 

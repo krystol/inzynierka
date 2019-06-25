@@ -1,6 +1,7 @@
-package ak.inzynierka.core;
+package ak.inzynierka.core.ogloszenia;
 
 import ak.inzynierka.R;
+import ak.inzynierka.core.MainActivity;
 import ak.inzynierka.model.BoardMessage;
 import ak.inzynierka.model.User;
 import android.app.Activity;

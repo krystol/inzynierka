@@ -20,6 +20,8 @@ public class User  implements Serializable {
   private String firstName;
   @JsonProperty("lastName")
   private String lastName;
+  @JsonProperty("username")
+  private String username;
   private Set<BoardMessage> boardMessages;
   private Set<Room> occupiedRooms;
 
