@@ -2,6 +2,7 @@ package ak.inzynierka.core.utility;
 
 import ak.inzynierka.core.MainActivity;
 import ak.inzynierka.model.AuthenticationRequest;
+import ak.inzynierka.model.RegisterRequest;
 import org.apache.commons.httpclient.methods.RequestEntity;
 import org.springframework.http.*;
 
@@ -23,11 +24,17 @@ public class EntityUtil {
         AuthenticationRequest ar = new AuthenticationRequest();
         ar.setUsername(username);
         ar.setPassword(passowrd);
-        HttpAuthentication httpAuthentication = new HttpBasicAuthentication(username, passowrd);
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.setContentType(MediaType.APPLICATION_JSON);
         requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         return new HttpEntity<>(ar,requestHeaders);
+    }
+
+    public static HttpEntity getAuthenticationEntityAndRegister(RegisterRequest registerRequest){
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+        requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        return new HttpEntity<>(registerRequest,requestHeaders);
     }
 
 }

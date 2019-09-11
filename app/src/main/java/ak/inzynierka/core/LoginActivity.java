@@ -1,5 +1,6 @@
 package ak.inzynierka.core;
 
+import ak.inzynierka.core.salki.Salka;
 import ak.inzynierka.core.utility.EntityUtil;
 import ak.inzynierka.model.AuthenticationRequest;
 import ak.inzynierka.model.AuthenticationResult;
@@ -100,7 +101,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 attemptLogin();
             }
         });
-
+        Button mRegisterButton = (Button) findViewById(R.id.email_register_button);
+        mRegisterButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(registerIntent);
+            }
+        });
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }

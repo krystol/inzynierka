@@ -78,7 +78,11 @@ public class PralniaGodzina extends Activity {
            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                if(isChecked){
                    dayInActivity.setHour8(firstAndLastName);
-               } else dayInActivity.setHour8(null);
+                   gtv8.setText(firstAndLastName);
+               } else {
+                   gtv8.setText("Wolne");
+                   dayInActivity.setHour8(null);
+               }
 
            }});
         cbList.add(cb8);
@@ -88,7 +92,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour9(firstAndLastName);
-                } else dayInActivity.setHour9(null);
+                    gtv9.setText(firstAndLastName);
+                } else {
+                    gtv9.setText("Wolne");
+                    dayInActivity.setHour9(null);
+                }
 
             }});
         cbList.add(cb9);
@@ -98,7 +106,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour10(firstAndLastName);
-                } else dayInActivity.setHour10(null);
+                    gtv10.setText(firstAndLastName);
+                } else {
+                    gtv10.setText("Wolne");
+                    dayInActivity.setHour10(null);
+                }
 
             }});
         cbList.add(cb10);
@@ -108,7 +120,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour11(firstAndLastName);
-                } else dayInActivity.setHour11(null);
+                    gtv11.setText(firstAndLastName);
+                } else {
+                    gtv11.setText("Wolne");
+                    dayInActivity.setHour11(null);
+                }
 
             }});
         cbList.add(cb11);
@@ -118,7 +134,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour12(firstAndLastName);
-                } else dayInActivity.setHour12(null);
+                    gtv12.setText(firstAndLastName);
+                } else {
+                    gtv12.setText("Wolne");
+                    dayInActivity.setHour12(null);
+                }
 
             }});
         cbList.add(cb12);
@@ -128,7 +148,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour13(firstAndLastName);
-                } else dayInActivity.setHour13(null);
+                    gtv13.setText(firstAndLastName);
+                } else {
+                    gtv13.setText("Wolne");
+                    dayInActivity.setHour13(null);
+                }
 
             }});
         cbList.add(cb13);
@@ -138,7 +162,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour14(firstAndLastName);
-                } else dayInActivity.setHour14(null);
+                    gtv14.setText(firstAndLastName);
+                } else {
+                    gtv14.setText("Wolne");
+                    dayInActivity.setHour14(null);
+                }
 
             }});
         cbList.add(cb14);
@@ -148,7 +176,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour15(firstAndLastName);
-                } else dayInActivity.setHour15(null);
+                    gtv15.setText(firstAndLastName);
+                } else {
+                    gtv15.setText("Wolne");
+                    dayInActivity.setHour15(null);
+                }
 
             }});
         cbList.add(cb15);
@@ -158,7 +190,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour16(firstAndLastName);
-                } else dayInActivity.setHour16(null);
+                    gtv16.setText(firstAndLastName);
+                } else {
+                    gtv16.setText("Wolne");
+                    dayInActivity.setHour16(null);
+                }
 
             }});
         cbList.add(cb16);
@@ -168,7 +204,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour17(firstAndLastName);
-                } else dayInActivity.setHour17(null);
+                    gtv17.setText(firstAndLastName);
+                } else {
+                    gtv17.setText("Wolne");
+                    dayInActivity.setHour17(null);
+                }
 
             }});
         cbList.add(cb17);
@@ -178,7 +218,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour18(firstAndLastName);
-                } else dayInActivity.setHour18(null);
+                    gtv18.setText(firstAndLastName);
+                } else {
+                    gtv18.setText("Wolne");
+                    dayInActivity.setHour18(null);
+                }
 
             }});
         cbList.add(cb18);
@@ -188,7 +232,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour19(firstAndLastName);
-                } else dayInActivity.setHour19(null);
+                    gtv19.setText(firstAndLastName);
+                } else {
+                    gtv19.setText("Wolne");
+                    dayInActivity.setHour19(null);
+                }
 
             }});
         cbList.add(cb19);
@@ -198,7 +246,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour20(firstAndLastName);
-                } else dayInActivity.setHour20(null);
+                    gtv20.setText(firstAndLastName);
+                } else {
+                    gtv20.setText("Wolne");
+                    dayInActivity.setHour20(null);
+                }
 
             }});
         cbList.add(cb20);
@@ -208,7 +260,11 @@ public class PralniaGodzina extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     dayInActivity.setHour21(firstAndLastName);
-                } else dayInActivity.setHour21(null);
+                    gtv21.setText(firstAndLastName);
+                } else {
+                    gtv21.setText("Wolne");
+                    dayInActivity.setHour21(null);
+                }
 
             }});
         cbList.add(cb21);
@@ -361,15 +417,17 @@ public class PralniaGodzina extends Activity {
         listaGodzin.add(laundryDay.getHour20());
         listaGodzin.add(laundryDay.getHour21());
         for (TextView tv : gtvList) {
-            String a = listaGodzin.get(gtvList.indexOf(tv));
+            int index = gtvList.indexOf(tv);
+            String a = listaGodzin.get(index);
 
             if (StringUtils.isEmpty(a)) {
                 tv.setText("Wolne");
             } else {
                 tv.setText(a);
+                cbList.get(index).toggle();
                 String firstName = a.trim().split("\\s+")[0];
                 String lastName = a.trim().split("\\s+")[1];
-                if(!bookedForLoggedUser(firstName,lastName)) cbList.get(gtvList.indexOf(tv)).setVisibility(View.INVISIBLE);
+                if(!bookedForLoggedUser(firstName,lastName)) cbList.get(index).setVisibility(View.INVISIBLE);
             }
         }
     }

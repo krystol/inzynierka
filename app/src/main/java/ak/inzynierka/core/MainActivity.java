@@ -18,9 +18,10 @@ import java.io.Serializable;
 
 public class MainActivity extends Activity {
 
-    public static String URL = "http://97db8ecb.ngrok.io";
+    public static String URL = "http://1cf36823.ngrok.io";
     public static final User loggedUser = new User("Krystian", "Adamczyk", 214);
     public static String TOKEN;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

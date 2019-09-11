@@ -15,15 +15,25 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_password_register">Password</string>
+    <string name="prompt_password_register2">Password (must match above)</string>
+    <string name="prompt_name">Name</string>
+    <string name="prompt_surname">Surname</string>
+    <string name="prompt_room_nr">Room Number</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_register">Register</string>
+    <string name="action_register_text">No account? Click Register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_not_matching_passwords">Passowrds must be the same</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_email_taken">This email is already in our database</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_pralnia_kalendarz">PralniaKalendarz</string>
     <string name="title_activity_pralnia_rezerwacja">PralniaRezerwacja</string>
+    <string name="title_activity_register">Register</string>
 
 </resources>
