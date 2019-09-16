@@ -27,6 +27,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,6 +44,7 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import static android.Manifest.permission.READ_CONTACTS;
+
 /**
  * A login screen that offers login via email/password.
  */
@@ -58,7 +60,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world", "test@p.pl:test","test:test"
+            "foo@example.com:hello", "bar@example.com:world", "test@p.pl:test", "test:test"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -314,22 +316,23 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         private final String mPassword;
 
         UserLoginTask(String email, String password) {
-            mUsername = "test";
-            mPassword = "test";
+            mUsername = email;
+            mPassword = password;
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
             ResponseEntity<AuthenticationResult> response = null;
             RestTemplate restTemplate = new RestTemplate();
-            if(isNetworkAvailable()) {
+            if (isNetworkAvailable()) {
                 response = restTemplate.exchange(
-                        MainActivity.URL+"/auth/signin",
+                        MainActivity.URL + "/auth/signin",
                         HttpMethod.POST,
-                        EntityUtil.getAuthenticationEntity(mUsername,mPassword),
-                        new ParameterizedTypeReference<AuthenticationResult>(){});
+                        EntityUtil.getAuthenticationEntity(mUsername, mPassword),
+                        new ParameterizedTypeReference<AuthenticationResult>() {
+                        });
             }
-            if(response!= null && response.getBody() != null) {
+            if (response != null && response.getBody() != null) {
                 token = response.getBody().getToken();
             }
             return response != null;
@@ -341,8 +344,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
 
             if (success) {
-                finish();Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
-                myIntent.putExtra("Token",token);
+                finish();
+                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                myIntent.putExtra("Token", token);
+                myIntent.putExtra("login", mUsername);
+                myIntent.putExtra("pass", mPassword);
                 LoginActivity.this.startActivity(myIntent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

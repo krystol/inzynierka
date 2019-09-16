@@ -25,9 +25,10 @@ public class User  implements Serializable {
   private Set<BoardMessage> boardMessages;
   private Set<Room> occupiedRooms;
 
-  public User(String firstName, String lastName, Integer livingInRoomNumber){
+  public User(String firstName, String lastName, Integer livingInRoomNumber, String username){
     this.firstName = firstName;
     this.lastName = lastName;
     this.livingInRoomNumber = livingInRoomNumber;
+    this.username = username;
   }
 }

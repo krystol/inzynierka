@@ -11,7 +11,7 @@ import java.util.Collections;
 public class EntityUtil {
 
     public static HttpEntity getAuthorizationEntity(){
-        HttpAuthentication httpAuthorization = new HttpBasicAuthentication("test", "test");
+        HttpAuthentication httpAuthorization = new HttpBasicAuthentication(MainActivity.creds.first, MainActivity.creds.second);
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.setAuthorization(httpAuthorization);
         requestHeaders.add("Authorization", MainActivity.TOKEN);

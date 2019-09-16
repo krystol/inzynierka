@@ -8,6 +8,7 @@ import ak.inzynierka.model.User;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,11 +16,14 @@ import android.widget.RelativeLayout;
 
 import java.io.Serializable;
 
+import static java.util.Objects.nonNull;
+
 
 public class MainActivity extends Activity {
 
     public static String URL = "http://1cf36823.ngrok.io";
-    public static final User loggedUser = new User("Krystian", "Adamczyk", 214);
+    public static User loggedUser = new User("Krystian", "Adamczyk", 214, "krystian.adamczyk@gmail.com");
+    public static Pair<String,String> creds = new Pair<>("", "");
     public static String TOKEN;
 
     @Override
@@ -29,8 +33,13 @@ public class MainActivity extends Activity {
         RelativeLayout rootLayaut = findViewById(R.id.relativeMain);
         rootLayaut.setBackgroundResource(R.drawable.background);
         Serializable extra = getIntent().getSerializableExtra("Token");
+        Serializable extraCreds = getIntent().getSerializableExtra("login");
+        Serializable extraPass = getIntent().getSerializableExtra("pass");
         if (extra != null) {
             TOKEN = (String)extra;
+            if (extraCreds != null && extraPass != null) {
+                creds = new Pair<>((String) extraCreds, (String) extraPass);
+            }
         }
     }
 

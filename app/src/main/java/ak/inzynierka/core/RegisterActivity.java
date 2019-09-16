@@ -77,7 +77,7 @@ public class RegisterActivity extends Activity {
         private final RegisterRequest mRequest;
 
         UserRegisterTask(RegisterRequest request) {
-            mRequest =  request;
+            mRequest = request;
         }
 
         @Override
@@ -87,15 +87,16 @@ public class RegisterActivity extends Activity {
             HttpHeaders requestHeaders = new HttpHeaders();
             requestHeaders.setContentType(MediaType.APPLICATION_JSON);
             requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-            HttpEntity<RegisterRequest> requestEntity = new HttpEntity<>(mRequest,requestHeaders);
-            if(isNetworkAvailable()) {
+            HttpEntity<RegisterRequest> requestEntity = new HttpEntity<>(mRequest, requestHeaders);
+            if (isNetworkAvailable()) {
                 response = restTemplate.exchange(
-                        MainActivity.URL+"/auth/register",
+                        MainActivity.URL + "/auth/register",
                         HttpMethod.POST,
                         EntityUtil.getAuthenticationEntityAndRegister(mRequest),
-                        new ParameterizedTypeReference<AuthenticationResult>(){});
+                        new ParameterizedTypeReference<AuthenticationResult>() {
+                        });
             }
-            if(response!= null && response.getBody() != null) {
+            if (response != null && response.getBody() != null) {
                 token = response.getBody().getToken();
             }
             return response != null;
@@ -108,7 +109,9 @@ public class RegisterActivity extends Activity {
             if (success) {
                 finish();
                 Intent myIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                myIntent.putExtra("Token",token);
+                myIntent.putExtra("Token", token);
+                myIntent.putExtra("login", mRequest.getUsername());
+                myIntent.putExtra("pass", mRequest.getPassword());
                 RegisterActivity.this.startActivity(myIntent);
             } else {
                 mPasswordView.setError(getString(R.string.error_email_taken));
@@ -153,7 +156,7 @@ public class RegisterActivity extends Activity {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
-        } else if (!passwordsMatch()){
+        } else if (!passwordsMatch()) {
             mPasswordView.setError(getString(R.string.error_not_matching_passwords));
             focusView = mPasswordView;
             cancel = true;
@@ -196,7 +199,7 @@ public class RegisterActivity extends Activity {
         return password.length() >= 4;
     }
 
-    private boolean passwordsMatch(){
+    private boolean passwordsMatch() {
         return mPasswordView.getText().toString().equals(mPasswordView2.getText().toString());
     }
 }
